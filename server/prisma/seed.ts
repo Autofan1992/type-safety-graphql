@@ -1,6 +1,5 @@
-import { PrismaClient } from '@prisma/client'
 import purge from './purge'
-import prisma from './client'
+import prisma from '../lib/prisma'
 
 export default async function main() {
     await purge()

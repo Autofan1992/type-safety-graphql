@@ -1,4 +1,4 @@
-import prisma from './client'
+import prisma from '../lib/prisma'
 
 const purge = async () => {
     await prisma.user.deleteMany({})
