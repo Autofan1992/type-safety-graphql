@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "@graphql-yoga/plugin-graphql-sse": "^3.2.0"
-  }
-}
