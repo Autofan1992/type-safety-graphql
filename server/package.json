@@ -4,11 +4,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev ./src/index.ts",
+    "dev": "ts-node-dev --exit-child --respawn  index.ts",
     "db:seed": "prisma db seed",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
-    "db:generate": "prisma generate"
+    "db:generate": "prisma generate",
+    "build": "tsc --build"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +18,7 @@
     "@graphql-yoga/node": "^3.9.1",
     "@pothos/core": "^3.41.0",
     "@pothos/plugin-prisma": "^3.64.0",
+    "@pothos/plugin-smart-subscriptions": "^3.7.2",
     "@prisma/client": "^5.10.2",
     "@types/node": "^20.11.20",
     "graphql": "^16.8.1",
@@ -27,6 +29,6 @@
     "typescript": "^5.3.3"
   },
   "prisma": {
-    "seed": "ts-node ./prisma/seed.ts"
+    "seed": "ts-node ./prisma/scripts/seed.ts"
   }
 }

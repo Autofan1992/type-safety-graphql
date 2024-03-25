@@ -1,18 +1,31 @@
-import builder from "./builder";
+import builder from './builder'
 
 // models
-import "../models/message/Message";
-import "../models/user/User";
+import '../models/message/Message'
+import '../models/user/User'
 
 // queries
-import "../models/user/User.queries";
-import { lexicographicSortSchema, printSchema } from "graphql";
-import { writeFile, writeFileSync } from "fs";
+import '../models/user/User.queries'
+import '../models/message/Message.queries'
+import '../models/message/Message.subscriptions'
+import '../models/message/Message.mutations'
 
-const schema =  builder.toSchema({});
+import { lexicographicSortSchema, printSchema } from 'graphql'
+import { writeFileSync } from 'fs'
+import { DateResolver } from 'graphql-scalars'
 
-export default schema;
+builder.subscriptionType({})
 
-const schemaAsString = printSchema(lexicographicSortSchema(schema));
+builder.queryType({})
 
-writeFileSync('./schema.graphql', schemaAsString);
+builder.mutationType({})
+
+builder.addScalarType('Date', DateResolver)
+
+const schema = builder.toSchema({})
+
+export default schema
+
+const schemaAsString = printSchema(lexicographicSortSchema(schema))
+
+writeFileSync('./schema.graphql', schemaAsString)

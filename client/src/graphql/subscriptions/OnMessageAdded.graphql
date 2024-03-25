@@ -1,0 +1,6 @@
+subscription OnMessageAdded {
+    messageAdded {
+        id
+        body
+    }
+}

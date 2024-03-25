@@ -1,8 +1,9 @@
-import { Message } from '../../types'
-import Branch from '../branch/Branch.tsx'
+import Branch from '../branch/Branch'
+import { Message } from '../../graphql-generated/types'
+import { MessageFragment } from '../../graphql/queries/Users.generated'
 
 type TMessageCardProps = {
-    message: Message
+    message: MessageFragment
     index: number
 }
 

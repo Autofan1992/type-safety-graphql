@@ -1,0 +1,18 @@
+query Users {
+    users {
+        ...User
+    }
+}
+
+fragment User on User {
+    id
+    name
+    messages {
+        ...Message
+    }
+}
+
+fragment Message on Message {
+    id
+    body
+}
